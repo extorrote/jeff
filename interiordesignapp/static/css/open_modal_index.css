@@ -1,0 +1,77 @@
+/* Modal container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+
+    /* Flex centering without overriding display */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+   
+}
+
+/* rest of your CSS */
+
+
+/* Modal image */
+.modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 5px;
+    object-fit: contain;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+    
+}
+
+.modal-image-wrapper {
+    position: relative;
+    display: inline-block; /* shrink to image size */
+}
+
+.close {
+    position: absolute;
+    top: 10px;   /* closer to the image top */
+    right: 10px; /* closer to the image right */
+    color: #48e;
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1100;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95%;
+        max-height: 70vh;
+    }
+    .close {
+        
+        
+        right: 15px;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        max-width: 100%;
+        max-height: 60vh;
+    }
+    .close {
+        
+       
+        right: 10px;
+    }
+    
+}

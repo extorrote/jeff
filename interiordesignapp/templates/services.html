@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>our services</title>
+  {% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet"> <!-- FUENTES GOOGLE-->
+
+  <link rel="stylesheet" href="{% static 'css/menu.css' %}" type="text/css">
+ 
+  <link rel="stylesheet" href="{% static 'css/footers.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/open_modal_index.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'fuentes/fuentes.css' %}" type="text/css">
+  <link rel="stylesheet" href="{%static 'css/estilos_service_list.css'%}" type="text/css">
+  {% comment %}<link rel="stylesheet" href="{% static 'css/estilos_forms.css' %}" type="text/css">{% endcomment %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+   <header>
+    <img src="{% static 'images/logo.png' %}" alt="Logo FitWeb"/> 
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#213448"><path d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z"/></svg>
+    </label>
+    <nav>
+    <ul>
+        <li><a href="{% url 'index' %}">HOME</a> </li>
+        <li><a href="{% url 'about_us' %}">ABOUT US</a> </li>     
+        <li> <a href="{% url 'project_list' %}">PROJECTS</a> </li>
+        <li><a href="{% url 'contact' %}">CONTACT</a> </li>
+        <li><a href="{% url 'jobopening_list' %}">JOB-OPENINGS</a> </li> 
+        
+      </ul>
+    </nav>
+  </header>
+{%load static%}
+{% block content %}
+
+<!-- OPEN MODAL-->
+<div id="myModal" class="modal">
+  <div class="modal-image-wrapper" style="position: relative; display: inline-block;">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+  <div id="caption"></div>
+</div>
+<!-- ############################## -->
+
+<h1>Our Services in Puerto Vallarta</h1>
+
+
+<p class="service_section_p">Discover the high-end design and property services we offer in the heart of Puerto Vallarta. From custom furniture to complete property management, we bring excellence to every project.</p> 
+
+
+<div class="service-section">
+  <h2>Furniture Design</h2>
+  <div class="service-images">
+    <img src="/static/images/furniture_design.jpg" alt="Client consultation" onclick="openModal(this.src)">
+      <img src="/static/images/image_15.jpg" alt="Furnished bedroom" onclick="openModal(this.src)">
+      <img src="/static/images/image_11.jpg" alt="Color palette samples" onclick="openModal(this.src)">
+      <img src="/static/images/image_12.jpg" alt="Final project view" onclick="openModal(this.src)">
+  </div>
+  <p>
+    With our custom <strong>furniture design</strong> services, we create exclusive pieces that elevate any space. Whether you're looking for sleek modern lines or artisanal rustic styles, we design and build furniture to match your vision. We work closely with you to ensure each item fits perfectly in your home or business, using high-quality, locally sourced materials. From initial sketches to final assembly, our attention to detail ensures that each piece is both functional and stunning. Experience furniture design that blends creativity with craftsmanship, made just for you.
+  </p>
+</div>
+
+<div class="service-section">
+  <h2>Interior Design</h2>
+  <div class="service-images">
+    <img src="/static/images/interior_design.jpg" alt="Kitchen remodel" onclick="openModal(this.src)">
+      <img src="/static/images/image_6.jpg" alt="Outdoor terrace design" onclick="openModal(this.src)">
+      <img src="/static/images/image_7.jpg" alt="Before and after interior" onclick="openModal(this.src)">
+      <img src="/static/images/image_new4.jpg" alt="Design details" onclick="openModal(this.src)">
+  </div>
+  <p>
+    Our expert <strong>interior design</strong> services are tailored to your personality and lifestyle. Whether designing for a home, vacation rental, or commercial space, we craft cohesive interiors that reflect your and style and taste while optimizing space and function. Our designers manage everything from layout planning to material selection, lighting, and decor. We combine timeless elegance with a tropical flair, perfect for Puerto Vallarta's vibrant setting. Let us transform your space into a sanctuary that feels both luxurious and livable.
+  </p>
+</div>
+
+<div class="service-section">
+  <h2>Remodeling</h2>
+  <div class="service-images">
+    <img src="/static/images/property_management.png" alt="Client consultation" onclick="openModal(this.src)">
+      <img src="/static/images/image_9.jpg" alt="Furnished bedroom" onclick="openModal(this.src)">
+      <img src="/static/images/image_3.jpg" alt="Color palette samples" onclick="openModal(this.src)">
+      <img src="/static/images/image_new9.jpg" alt="Final project view" onclick="openModal(this.src)">
+  </div>
+  <p>
+    Our comprehensive <strong>remodeling services</strong> help homeowners and investors upgrade their properties with confidence. From kitchen and bathroom remodels to full home renovations, we handle every detail including permits, structural work, and high-end finishes. We understand the unique challenges of coastal construction and source materials suited for this area's climate. Our project managers and artisans work seamlessly to deliver on-time and on-budget. Whether refreshing a single room or renovating a full property, we bring creativity, quality, and experience to every project.
+  </p>
+</div>
+{%comment%}
+<div class="service-section">
+  <h2>Property Management</h2>
+  <div class="service-images">
+    <img src="/static/images/property_management1.png" alt="Managed Property 1" onclick="openModal(this.src)">
+    <img src="/static/images/image_13.jpg" alt="Managed Property 2" onclick="openModal(this.src)">
+    <img src="/static/images/image_14.jpg" alt="Managed Property 3" onclick="openModal(this.src)">
+    <img src="/static/images/image_15.jpg" alt="Managed Property 4" onclick="openModal(this.src)">
+  </div>
+  <p>
+    Our full-service <strong>property management</strong> in Puerto Vallarta ensures your investment is protected, profitable, and stress-free. We manage everything from tenant screening and leasing to maintenance, accounting, and guest services. Our bilingual team provides personalized care for short-term rentals, vacation homes, and long-term properties. Whether you live locally or abroad, you can count on our transparent communication and proactive management to maintain the value of your property. With our local network and deep market knowledge, we optimize your ROI while delivering peace of mind.
+  </p>
+</div>
+{%endcomment%}
+
+
+{% endblock %}
+
+
+<script>
+    function openModal(imageSrc, captionText) {
+        const modal = document.getElementById("myModal");
+        const modalImage = document.getElementById("modalImage");
+        
+
+        modal.style.display = "flex";
+        modalImage.src = imageSrc;
+        
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("myModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-info-container">
+        <h2>CONTACT US</h2>
+        
+        <a href="mailto:atelierjlw@gmail.com"><p>atelierjlw@gmail.com</p></a>
+        <p><strong>Attention Hours:</strong> Monday to Friday, 10 AM - 6 PM</p>
+      </div>
+    </div>
+    <div class="footer-form-container">
+      <form method="post" action="/send_email/">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="phone" placeholder="Your Phone" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <p class="footer-rights">&copy; 2025 Cuatro Puntos. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{%load static%}
+{%block content%}
+<h1>Completed Designs & Renovations</h1>
+<div class="separador_body"></div>
+<div class="posts_grid">
+    {% if items %}
+        {% for item in items %}
+            <div class="item">
+                 
+                <h2>{{ item.title }}</h2>
+                <a href="{%url 'details_project' item.id %}">
+                {% if item.image1 %}
+                    <img src="{{ item.image1.url }}" alt="Image 1"></a>
+                {% endif %}
+                
+                <p>{{ item.description }}</p> 
+                <a class="more_details_button" href="{%url 'details_project' item.id %}">View Details</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

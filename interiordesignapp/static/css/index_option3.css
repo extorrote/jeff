@@ -1,0 +1,141 @@
+/* Colores base */
+:root {
+  --primary-color: #213448;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --accent-color: #00bfa6; /* Verde menta moderna */
+  --text-color: #1a1a1a;
+  --text-muted: #5e5e5e;
+  --border-color: #e4e7eb;
+  --shadow-color: rgba(0, 0, 0, 0.06);
+  --font-heading: 'Manrope', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+/* Estilo global */
+body {
+  background-color: var(--background-color);
+  font-family: var(--font-body);
+  margin: 0;
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+/* Contenedor principal */
+.blog-posts {
+  max-width: 1240px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+/* Tarjetas */
+.post {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem 2.2rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 6px 20px var(--shadow-color);
+  transition: all 0.3s ease;
+  position: relative;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.post:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.08);
+}
+
+/* Título */
+.post h2 {
+  font-family: var(--font-heading);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.post h2::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+/* Imágenes */
+.post-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.post-images img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(10%) contrast(95%);
+  cursor: pointer;
+}
+
+.post-images img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(105%);
+}
+
+/* Texto */
+.post p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 90%;
+  letter-spacing: 0.02em;
+  font-family: var(--font-body);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .post {
+    padding: 1.6rem;
+  }
+
+  .post h2 {
+    font-size: 2rem;
+  }
+
+  .post-images img {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    padding: 1.2rem;
+  }
+
+  .post h2 {
+    font-size: 1.6rem;
+  }
+
+  .post-images {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .post-images img {
+    height: 100px;
+  }
+
+  .post p {
+    font-size: 0.95rem;
+  }
+}
+
+*{
+    padding:0;
+    margin:0;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>FitWeb</title>
+  {% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet"> <!-- FUENTES GOOGLE-->
+
+  <link rel="stylesheet" href="{% static 'css/menu.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'css/estilos_contact.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/footers.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'fuentes/fuentes.css' %}" type="text/css">
+  {% comment %}<link rel="stylesheet" href="{% static 'css/estilos_forms.css' %}" type="text/css">{% endcomment %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .footer{
+      max-width:800px !important;
+      width:100%;
+      margin-top:10vh;
+    }
+    .footer_link{
+      margin-bottom:10px !important;
+    }
+  </style>
+</head>
+
+<body>
+ <header>
+    <img src="{% static 'images/logo.png' %}" alt="Logo FitWeb"/> 
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#213448"><path d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z"/></svg>
+    </label>
+    <nav>
+    <ul>
+        <li><a href="{% url 'index' %}">HOME</a> </li>
+        <li><a href="{% url 'about_us' %}">ABOUT US</a> </li>     
+        <li> <a href="{% url 'project_list' %}">PROJECTS</a> </li>
+        <li><a href="{% url 'our_services' %}">SERVICES</a> </li>
+        <li><a href="{% url 'jobopening_list' %}">JOB-OPENINGS</a> </li>
+      </ul>
+    </nav>
+  </header>
+
+  {% block content %}
+<div class="contact-message">
+  <h3>Let’s bring your vision to life</h3>
+  <p>
+    Whether you're refreshing a room or planning a full renovation, we're here to help. Every project at Cuatro Puntos starts with a conversation — and we’d love to hear yours.
+    <br><br>
+    Get in touch to explore your ideas. We offer thoughtful, personalized design for homeowners, investors, and property managers in Puerto Vallarta.
+    <br><br>
+    <strong>Honest guidance. Creative solutions. Designs that last.</strong>
+  </p>
+</div>
+
+
+  {% endblock %}
+
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-info-container">
+        <h2>CONTACT US</h2>
+        
+        <a href="mailto:atelierjlw@gmail.com"><p>atelierjlw@gmail.com</p></a>
+        <p><strong>Attention Hours:</strong> Monday to Friday, 10 AM - 6 PM</p>
+      </div>
+    </div>
+    <div class="footer-form-container">
+      <form method="post" action="/send_email/">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="phone" placeholder="Your Phone" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <p class="footer-rights">&copy; 2025 Cuatro Puntos. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/open_modal_index.css' %}" type="text/css">
+
+  {% if messages %}
+    <div class="form-messages">
+      {% for message in messages %}
+        <div class="message {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  
+<div class="separador_body"></div>
+<div class="posts_grid">
+    {% if items %}
+        {% for item in items %}
+            <div class="item">
+                 
+                <h2>{{ item.title }}</h2>
+                <a href="{%url 'detalles_post_index' item.id %}">
+                {% if item.image1 %}
+                    <img src="{{ item.image1.url }}" alt="Image 1"></a>
+                {% endif %}
+                
+                <p>{{ item.description }}</p> 
+                <a class="more_details_button" href="{%url 'detalles_post_index' item.id %}">View Details</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal">
+  <div class="modal-image-wrapper" style="position: relative; display: inline-block;">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+  <div id="caption"></div>
+</div>
+
+
+<div class="blog-posts"> 
+  <!-- Post 1 -->
+  <div class="post">
+    <h2>Designing with Heart: The Cuatro Puntos Approach</h2>
+    <div class="post-images">
+      <img src="/static/images/image_1.jpg" alt="Design process" onclick="openModal(this.src, this.alt)">
+      <img src="/static/images/image_2.jpg" alt="Living room concept" onclick="openModal(this.src, this.alt)">
+      <img src="/static/images/image_3.jpg" alt="Material samples" onclick="openModal(this.src, this.alt)">
+      <img src="/static/images/image_4.jpg" alt="Finished project" onclick="openModal(this.src, this.alt)">
+    </div>
+    <div class="imagen_glande_index">
+      <img src="/static/images/image_new1.jpg" alt="Final project view" onclick="openModal(this.src, this.alt)">
+    </div>
+<p>
+      At Cuatro Puntos, every project starts with a conversation. We believe great design comes not just from a keen eye but from truly understanding the people who will live in the home. Being a small team allows us to stay deeply involved in each step of the process. From your first idea to the final light fixture, we are there with you—sketching, sourcing, building, and refining.
+      <br><br>
+      We focus on interior design aesthetics, but we also offer custom <strong>furniture design</strong> and transformative <strong>renovations</strong> that fit with your individual taste and lifestyle. It’s an integrated approach to making spaces livable, durable and luxurious.
+      <br><br>
+      We merge local cultural elements, practical function, and elegant design to deliver an environment that feels personal and timeless. Our clients come to us not just for design, but for honesty, professionalism, and creativity.
+</p>
+  </div>
+
+  <!-- Post 2 -->
+  <div class="post">
+    <h2>From Puerto Vallarta to Perfection: A Local Design Story</h2>
+    <div class="post-images">
+      <img src="/static/images/image_5.jpg" alt="Kitchen remodel" onclick="openModal(this.src, this.alt)">
+      <img src="/static/images/image_6.jpg" alt="Outdoor terrace design" onclick="openModal(this.src, this.alt)">
+      <img src="/static/images/image_7.jpg" alt="Before and after interior" onclick="openModal(this.src, this.alt)">
+      <img src="/static/images/image_8.jpg" alt="Design details" onclick="openModal(this.src, this.alt)">
+    </div>
+    <div class="imagen_glande_index">
+      <img src="/static/images/image_new4.jpg" alt="Final project view" onclick="openModal(this.src, this.alt)">
+    </div>
+   <p> 
+      Cuatro Puntos was founded with a simple goal: to bring high-quality, culturally relevant interior design to the homes and businesses of Puerto Vallarta. We are proud to be part of this beautiful city, and Mexican sensibility influences everything we do—from our color choices to the materials we source.
+      <br><br>
+      We’ve helped homeowners create both dream vacation spaces and permanent residences, we’ve designed full-scale interiors from the ground up, and we’ve helped clients re-envision their condos. Some clients have purchased a property primarily for the rental market. We consider the durability of the furniture and design choices so that they will endure in a rental environment.
+      <br><br>
+      Each project is a reflection of our values: integrity, creativity, and close collaboration with our clients.
+</p>
+
+  </div>
+
+  <!-- Post 3 -->
+  <div class="post">
+    <h2>Small Team, Big Results: Why Clients Trust Cuatro Puntos</h2>
+    <div class="post-images">
+      <img src="/static/images/image_9.jpg" alt="Client consultation" onclick="openModal(this.src, this.alt)">
+      <img src="/static/images/image_10.jpg" alt="Furnished bedroom" onclick="openModal(this.src, this.alt)">
+      <img src="/static/images/image_11.jpg" alt="Color palette samples" onclick="openModal(this.src, this.alt)">
+      <img src="/static/images/image_12.jpg" alt="Final project view" onclick="openModal(this.src, this.alt)">
+    </div>
+    <div class="imagen_glande_index">
+      <img src="/static/images/image_12.jpg" alt="Final project view" onclick="openModal(this.src, this.alt)">
+    </div>
+   <p>
+      Trust is earned, and at Cuatro Puntos, we work hard every day to gain your trust. We understand that inviting a designer into your home is personal—and it takes more than good taste to get it right. That’s why we focus on clear communication, transparency, and creative solutions that respect your budget and vision.
+      <br><br>
+      Whether it's managing a full or partial renovation, designing and crafting unique furniture pieces, or reenvisioning your living space, our services are designed to support you every step of the way. We bring this same level of care and craftsmanship to everything we do. We manage everything from layout planning to material selection, lighting, and decorative accessories.
+      <br><br>
+      Our small team structure ensures you work directly with the people designing your space, so no detail is overlooked.
+</p>
+  </div>
+</div>
+
+<!-- JavaScript for modal -->
+<script>
+    function openModal(imageSrc, captionText) {
+        const modal = document.getElementById("myModal");
+        const modalImage = document.getElementById("modalImage");
+        
+
+        modal.style.display = "flex";
+        modalImage.src = imageSrc;
+        
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("myModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}
+
+

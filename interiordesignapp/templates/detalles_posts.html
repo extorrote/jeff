@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Details </title>
+  
+  {% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500&display=swap"  rel="stylesheet"> <!-- FUENTES GOOGLE-->
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<!-- Fancybox CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css" />
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
+<script src="{%static 'css/swipers_details.js'%}"></script>
+<link rel="stylesheet" href="{% static 'css/swipers_detail_sections.css' %}">
+<link rel="stylesheet" href="{% static 'css/details_estilos.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/swipers.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/menu.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/footers.css' %}" type="text/css">
+</head>
+<body>
+<header>
+   <img src="{% static 'images/logo.png' %}" alt="Logo FitWeb"/> 
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#0A192F"><path d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z"/></svg>
+    </label>
+    <nav>
+    <ul>
+        <li><a href="{% url 'index' %}">HOME</a> </li>
+        <li><a href="{% url 'about_us' %}">ABOUT US</a> </li>     
+        <li> <a href="{% url 'project_list' %}">PROJECTS</a> </li>
+        <li><a href="{% url 'our_services' %}">SERVICES</a> </li>
+        <li><a href="{% url 'contact' %}">CONTACT</a> </li>
+        <li><a href="{% url 'jobopening_list' %}">JOB-OPENINGS</a> </li>
+        
+      </ul>
+    </nav>
+  </header>
+
+<div class="project-detail-container">
+
+    {% if items.title %}
+        <h2 class="project-title">{{ items.title }}</h2>
+    {% endif %}
+
+    <!-- Image container for the swiper -->
+<div class="swiper-container" data-aos="fade-up">
+    <div class="swiper-wrapper">
+
+        {% if items.image1 %}
+        <div class="swiper-slide">
+            <img src="{{ items.image1.url }}" alt="{{ items.title }}" data-fancybox="gallery" class="fancybox">
+        </div>
+        {% endif %}
+
+        {% if items.image2 %}
+        <div class="swiper-slide">
+            <img src="{{ items.image2.url }}" alt="{{ items.title }}" data-fancybox="gallery" class="fancybox">
+        </div>
+        {% endif %}
+
+        {% if items.image3 %}
+        <div class="swiper-slide">
+            <img src="{{ items.image3.url }}" alt="{{ items.title }}" data-fancybox="gallery" class="fancybox">
+        </div>
+        {% endif %}
+
+        {% if items.image4 %}
+        <div class="swiper-slide">
+            <img src="{{ items.image4.url }}" alt="{{ items.title }}" data-fancybox="gallery" class="fancybox">
+        </div>
+        {% endif %}
+
+        {% if items.image5 %}
+        <div class="swiper-slide">
+            <img src="{{ items.image5.url }}" alt="{{ items.title }}" data-fancybox="gallery" class="fancybox">
+        </div>
+        {% endif %}
+
+        {% if items.image6 %}
+        <div class="swiper-slide">
+            <img src="{{ items.image6.url }}" alt="{{ items.title }}" data-fancybox="gallery" class="fancybox">
+        </div>
+        {% endif %}
+
+        {% if items.image7 %}
+        <div class="swiper-slide">
+            <img src="{{ items.image7.url }}" alt="{{ items.title }}" data-fancybox="gallery" class="fancybox">
+        </div>
+        {% endif %}
+
+        {% if items.image8 %}
+        <div class="swiper-slide">
+            <img src="{{ items.image8.url }}" alt="{{ items.title }}" data-fancybox="gallery" class="fancybox">
+        </div>
+        {% endif %}
+
+    </div>
+
+        <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+
+
+    {% if items.description %}
+        <div class="project-description">
+            <p>{{ items.description }}</p>
+        </div>
+    {% endif %}
+
+    <div class="back-link">
+        <a href="{% url 'project_list' %}">← Back to Projects</a>
+    </div>
+
+</div>
+
+<script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const mySwiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    
+        // Fancybox events to control autoplay
+        Fancybox.bind("[data-fancybox='gallery']", {
+            on: {
+                reveal: () => {
+                    // Stop autoplay when Fancybox modal opens
+                    mySwiper.autoplay.stop();
+                },
+                closing: () => {
+                    // Resume autoplay when Fancybox closes
+                    mySwiper.autoplay.start();
+                }
+            }
+        });
+    });
+</script>
+
+
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-info-container">
+        <h2>CONTACT US</h2>
+        
+        <a href="mailto:atelierjlw@gmail.com"><p>atelierjlw@gmail.com</p></a>
+        <p><strong>Attention Hours:</strong> Monday to Friday, 10 AM - 6 PM</p>
+      </div>
+    </div>
+    <div class="footer-form-container">
+      <form method="post" action="/send_email/">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="phone" placeholder="Your Phone" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <p class="footer-rights">&copy; 2025 Cuatro Puntos. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,236 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  @keyframes heartBeat {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    14% {
+      -webkit-transform: scale(1.3);
+      transform: scale(1.3);
+    }
+  
+    28% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    42% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    70% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+
+
+header {
+    color:#213448;
+    color:#547792;
+    color:#94B4C1;
+    color:#ECEFCA;
+    background-color: #ccc;
+    background-image: radial-gradient(#fff 75%,#ccc);
+    color: #fff;   
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    height:40vh;
+    /*
+    box-shadow: 0 12px 25px #1f1f1f;
+    border-bottom: 1px solid #2a2a2a; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 10px;
+    animation:slideIn 1.5s .3s ease-in-out;
+   /* background-image: url(/static/images/header.png);
+    background-size: cover;
+    background-position: center;
+clip-path: polygon(49% 0, 0% 100%, 100% 100%);*/
+
+}
+
+header h4{
+    
+    font-size: 50px;
+    font-family: "cris";
+    font-family: "estetica_mayuscula";
+    font-family: "desgastadita";
+    font-family: "chida_con_fondito_rayado";
+    font-family: "3d_ventilada";
+    font-family: "desgastadita_dos";
+
+    color:gray;
+    letter-spacing: 7px;
+}
+nav{
+    width:100%;
+    height:50px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+   
+    
+}
+nav ul{
+    height:55px;
+    max-width:1600px;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #213448;
+    background-color: 	#0A192F;
+    background-color: transparent;
+    list-style: none;
+    text-decoration: none;
+
+}
+@media screen and (max-width:768px){
+    nav ul {
+        
+    }
+}
+nav ul li{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+    margin:5px;
+    
+}
+nav ul li a{
+    margin:0;
+    display:flex;
+    color:#000;
+    color:#0A192F;
+    font-size: 18px;
+    margin:5px;
+    cursor: pointer;
+    letter-spacing: 4px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-wrap: nowrap;
+    font-weight: 100;
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+nav ul li a:hover{
+    color:#ccc;
+    color:#E3B23C;
+    border-bottom: 1px solid #E3B23C;
+}
+
+
+header img {
+    width:  250px;
+    height: 200px;    
+    transition: transform 0.3s ease;
+    margin:auto;
+    
+}
+
+@media screen and (max-width:768px){
+    header img{
+        width:150px;
+        height:100px;
+        margin-top: 90px;
+    }
+}
+header label , header input{
+    cursor:pointer;
+    user-select: none;
+    display:none;
+}
+
+@media screen and (max-width:768px){
+    nav {
+        display:none;
+    }
+   
+   header label{
+    display:flex;
+    margin:auto;
+    
+   }
+   #checkbox{
+    display:none;
+   }
+
+    #checkbox:checked ~ nav ,nav ul  {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height:auto;
+        margin:0;
+        
+    }
+
+   #checkbox:checked ~ nav li{
+    width:90%;
+    margin:5px auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+   }
+    nav ul li a{
+    display:flex;
+    margin:auto;
+    letter-spacing: 7px;
+    font-size: 15px;
+    animation: slideInFromRight 2s .1s ease-in-out;
+   }
+   
+    header{
+        height:auto;
+        box-shadow: 0 0 15px #f9f8f6;
+        margin-bottom: 30px;
+    }
+}
+
+  
+
+
+
+
+
+
